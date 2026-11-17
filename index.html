@@ -1,536 +1,147 @@
 <!DOCTYPE html>
-<!-- saved from url=(0191)file:///C:/Users/User/Downloads/%E5%8F%8C%E6%96%B9%E5%90%91%E6%80%A7%E3%81%AE%E3%81%82%E3%82%8B%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%81%A8%E3%81%AF_%E7%94%9F%E5%BE%92%E7%94%A8.html -->
-<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>双方向性のあるコンテンツとは</title>
+  <title>今日の確認テスト</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 0;
-      background: #f4f6fa;
-      color: #1e293b;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-      line-height: 1.6;
-    }
-    .header-bar {
-      background: #14213d;
-      color: #f7f4ec;
-      padding: 1.25rem 1.5rem;
-      border-bottom: 3px solid #b08d57;
-    }
-    .header-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-    .header-inner h1 {
-      margin: 0;
-      font-size: 1.35rem;
-      font-weight: 700;
-    }
-    .header-meta {
-      font-size: 0.85rem;
-      opacity: 0.9;
-    }
-    .main-wrap {
-      max-width: 860px;
-      margin: 1.5rem auto;
-      padding: 0 1rem 3rem;
-    }
-    .student-info-card {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 1.25rem;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .field-group label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #475569;
-    }
-    .field-group input {
-      font-size: 0.95rem;
-      padding: 0.5rem 0.75rem;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      outline: none;
-    }
-    .field-group input:focus {
-      border-color: #14213d;
-      box-shadow: 0 0 0 2px rgba(20,33,61,0.15);
-    }
-    .text-card {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      font-size: 1.05rem;
-      line-height: 2.1;
-      border-left: 4px solid #14213d;
-    }
-    .blank-pill {
-      background: #e2e8f0;
-      color: #1e293b;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin: 0 3px;
-      border: 1px solid #cbd5e1;
-    }
-    .q-card {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 1.25rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      border-top: 3px solid #14213d;
-    }
-    .q-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.75rem;
-      font-size: 0.9rem;
-    }
-    .q-prompt {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      line-height: 1.7;
-    }
-    .options-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.6rem;
-    }
-    .option-btn {
-      background: #f8fafc;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 6px;
-      padding: 0.75rem 1rem;
-      font-size: 0.95rem;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.15s ease;
-    }
-    .option-btn:hover {
-      background: #f1f5f9;
-      border-color: #94a3b8;
-    }
-    .option-btn.selected {
-      background: #e0e7ff;
-      border-color: #3730a3;
-      color: #1e1b4b;
-      font-weight: 700;
-    }
-    .text-input-wrap input {
-      width: 100%;
-      font-size: 1.05rem;
-      padding: 0.7rem 0.9rem;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 6px;
-      box-sizing: border-box;
-      outline: none;
-    }
-    .text-input-wrap input:focus {
-      border-color: #14213d;
-      box-shadow: 0 0 0 2px rgba(20,33,61,0.15);
-    }
-    .submit-bar {
-      margin-top: 2rem;
-      text-align: center;
-    }
-    .btn-submit {
-      background: #14213d;
-      color: #ffffff;
-      border: none;
-      border-radius: 6px;
-      padding: 0.85rem 2.5rem;
-      font-size: 1.05rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(20,33,61,0.25);
-      transition: background 0.15s ease;
-    }
-    .btn-submit:hover {
-      background: #0d1627;
-    }
-    /* Result Section */
-    .result-section {
-      display: none;
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 1.75rem;
-      margin-top: 2rem;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-      border-top: 4px solid #14213d;
-    }
-    .result-badge {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #14213d;
-      text-align: center;
-      margin: 0.5rem 0;
-    }
-    .copy-block {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 6px;
-      padding: 1rem;
-      margin: 1.25rem 0;
-      font-family: monospace;
-      font-size: 0.88rem;
-      white-space: pre-wrap;
-      word-break: break-all;
-      max-height: 220px;
-      overflow-y: auto;
-    }
-    .btn-copy {
-      background: #b08d57;
-      color: #ffffff;
-      border: none;
-      border-radius: 6px;
-      padding: 0.65rem 1.25rem;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .feedback-item {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid #f1f5f9;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.9rem;
-    }
-    .badge-correct { color: #166534; font-weight: 700; }
-    .badge-wrong { color: #991b1b; font-weight: 700; }
-    @media (max-width: 640px) {
-      .student-info-card { grid-template-columns: 1fr; }
-      .options-grid { grid-template-columns: 1fr; }
+    body { font-family: 'Segoe UI', sans-serif; max-width: 860px; margin: 30px auto; padding: 20px; background: #f8fafc; color: #0f172a; line-height: 2.2; font-size: 1.1rem; }
+    .card { background: #ffffff; padding: 32px; border-radius: 12px; border: 1px solid #cbd5e1; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    h1 { font-size: 1.6rem; margin-bottom: 16px; color: #1e3a8a; border-bottom: 3px solid #2563eb; padding-bottom: 8px; }
+    .name-box { margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-weight: bold; }
+    .name-box input { padding: 6px 12px; font-size: 1rem; border: 1px solid #cbd5e1; border-radius: 4px; width: 220px; }
+    .student-input { border: 2px solid #94a3b8; border-radius: 6px; padding: 4px 10px; font-size: 1rem; width: 140px; text-align: center; font-weight: bold; margin: 0 4px; }
+    .student-select { border: 2px solid #0284c7; border-radius: 6px; padding: 4px 10px; font-size: 1rem; font-weight: bold; background: #f0f9ff; color: #0369a1; cursor: pointer; margin: 0 4px; }
+    .student-input.correct, .student-select.correct { border-color: #16a34a; background: #dcfce7; color: #15803d; }
+    .student-input.incorrect, .student-select.incorrect { border-color: #dc2626; background: #fee2e2; color: #991b1b; }
+    .btn-group-student { display: flex; gap: 12px; margin-top: 28px; }
+    .btn-submit { background: #2563eb; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; flex: 2; }
+    .btn-print { background: #64748b; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; flex: 1; }
+    #scoreBox { margin-top: 20px; padding: 16px; border-radius: 8px; text-align: center; font-size: 1.3rem; font-weight: bold; display: none; }
+    .score-good { background: #dcfce7; color: #166534; border: 2px solid #86efac; }
+    .answer-key { font-size: 0.85rem; color: #dc2626; font-weight: bold; margin-left: 4px; }
+    .btn-save-result { background: #16a34a; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 12px; width: 100%; display: none; }
+    
+    /* 印刷用レイアウト切替用CSS (@media print) */
+    @media print {
+      body { background: #fff; margin: 0; padding: 0; }
+      .card { border: none; box-shadow: none; padding: 0; }
+      .btn-group-student, .btn-save-result, #scoreBox { display: none !important; }
+      .student-input, .student-select { border: none; border-bottom: 2px solid #000; background: transparent; color: transparent; width: 120px; display: inline-block; text-align: center; }
+      .student-select option { display: none; }
     }
   </style>
 </head>
 <body>
-
-  <header class="header-bar">
-    <div class="header-inner">
-      <div>
-        <div class="header-meta" id="display-subject">中学２年　技術</div>
-        <h1 id="display-title">双方向性のあるコンテンツとは</h1>
-      </div>
-      <div class="header-meta" style="text-align:right;">
-        <span id="display-q-count">全 4 問</span> | <span id="display-total-points">合計 8 点</span>
-      </div>
+  <div class="card">
+    <h1>📝 今日の確認テスト</h1>
+    <div class="name-box">
+      氏名: <input type="text" id="studentName" placeholder="名前を入力してください">
     </div>
-  </header>
-
-  <main class="main-wrap">
-
-    <div class="student-info-card">
-      <div class="field-group">
-        <label for="student-name">氏名（名前）</label>
-        <input type="text" id="student-name" placeholder="例: 山田 太郎">
-      </div>
-      <div class="field-group">
-        <label for="student-id">出席番号 / 学籍番号</label>
-        <input type="text" id="student-id" placeholder="例: 2年1組 15番">
-      </div>
+    <div id="historyNotice" style="font-size:0.85rem; color:#64748b; margin-bottom:12px;"></div>
+    <div id="testBody"><span><select class="student-select" data-answer="コンテンツ" id="q_0"><option value="">[ 1 選択 ]</option><option value="コンテンツ">コンテンツ</option><option value="双方向">双方向</option><option value="指向性">指向性</option><option value="ジャンル">ジャンル</option></select></span>とは、目的に応じて、文字や音声、静止画、動画などを組み合わせて表現された情報を指します。<span><select class="student-select" data-answer="双方向" id="q_1"><option value="">[ 2 選択 ]</option><option value="双方向">双方向</option><option value="コンテンツ">コンテンツ</option><option value="指向性">指向性</option><option value="情報">情報</option></select></span>とは、使用者の働きかけ（<span><select class="student-select" data-answer="入力" id="q_2"><option value="">[ 3 選択 ]</option><option value="入力">入力</option><option value="出力">出力</option><option value="記憶">記憶</option><option value="制御">制御</option></select></span>）に応じて、応答（<span><select class="student-select" data-answer="出力" id="q_3"><option value="">[ 4 選択 ]</option><option value="出力">出力</option><option value="入力">入力</option><option value="記憶">記憶</option><option value="演算">演算</option></select></span>）する機能のことを言います。<br>受信者・送信者がメッセージを送ったり、受け取ったりしてメッセージのやりとりが出来るようなシステムのことを、「<span><input type="text" class="student-input" data-answer="チャットシステム" id="q_4" placeholder="[ 5 ]"></span>」と言います。</div>
+    
+    <div class="btn-group-student">
+      <button class="btn-submit" onclick="checkAnswers()">採点する</button>
+      <button class="btn-print" onclick="window.print()">🖨️ 印刷</button>
     </div>
-
-    <div class="text-card" id="student-passage">使用者の働きかけ（<span class="blank-pill">（ 1 ）</span>）に応じて、応答（<span class="blank-pill">（ 2 ）</span>）する機能を<span class="blank-pill">（ 4 ）</span>といいます。また、目的に応じて、文字や音声、静止画、動画などのメディアを組み合わせて表現された情報を<span class="blank-pill">（ 3 ）</span>といいます。<br>　社会では、情報通信ネットワークを利用して、さまざまなコンテンツを双方向にやりとりするシステムが数多く作られ、活用されています。</div>
-
-    <div id="student-questions-container"><div class="q-card" id="sq-q_1794785945167_369"><div class="q-header"><strong>第 1 問</strong><span style="color:#64748b; font-size:0.8rem;">配点: 2点</span></div><div class="q-prompt">使用者の働きかけ（【 ( 1 ) 】）に応じて、応答（出力）する機能を双方向性といいます。</div><div class="options-grid"><button type="button" class="option-btn" id="opt-btn-q_1794785945167_369-0" onclick="selectChoice('q_1794785945167_369', '出力', 0)"><strong>A.</strong> 出力</button><button type="button" class="option-btn" id="opt-btn-q_1794785945167_369-1" onclick="selectChoice('q_1794785945167_369', '入力', 1)"><strong>B.</strong> 入力</button><button type="button" class="option-btn" id="opt-btn-q_1794785945167_369-2" onclick="selectChoice('q_1794785945167_369', '目的', 2)"><strong>C.</strong> 目的</button><button type="button" class="option-btn" id="opt-btn-q_1794785945167_369-3" onclick="selectChoice('q_1794785945167_369', '利用', 3)"><strong>D.</strong> 利用</button></div></div><div class="q-card" id="sq-q_1794785987334_772"><div class="q-header"><strong>第 2 問</strong><span style="color:#64748b; font-size:0.8rem;">配点: 2点</span></div><div class="q-prompt">使用者の働きかけ（入力）に応じて、応答（【 ( 2 ) 】）する機能を双方向性といいます。</div><div class="options-grid"><button type="button" class="option-btn" id="opt-btn-q_1794785987334_772-0" onclick="selectChoice('q_1794785987334_772', '応答', 0)"><strong>A.</strong> 応答</button><button type="button" class="option-btn" id="opt-btn-q_1794785987334_772-1" onclick="selectChoice('q_1794785987334_772', '入力', 1)"><strong>B.</strong> 入力</button><button type="button" class="option-btn" id="opt-btn-q_1794785987334_772-2" onclick="selectChoice('q_1794785987334_772', '配信', 2)"><strong>C.</strong> 配信</button><button type="button" class="option-btn" id="opt-btn-q_1794785987334_772-3" onclick="selectChoice('q_1794785987334_772', '出力', 3)"><strong>D.</strong> 出力</button></div></div><div class="q-card" id="sq-q_1794786053542_742"><div class="q-header"><strong>第 3 問</strong><span style="color:#64748b; font-size:0.8rem;">配点: 2点</span></div><div class="q-prompt">また、目的に応じて、文字や音声、静止画、動画などのメディアを組み合わせて表現された情報を【 ( 4 ) 】といいます。</div><div class="options-grid"><button type="button" class="option-btn" id="opt-btn-q_1794786053542_742-0" onclick="selectChoice('q_1794786053542_742', '情報', 0)"><strong>A.</strong> 情報</button><button type="button" class="option-btn" id="opt-btn-q_1794786053542_742-1" onclick="selectChoice('q_1794786053542_742', '双方向性', 1)"><strong>B.</strong> 双方向性</button><button type="button" class="option-btn" id="opt-btn-q_1794786053542_742-2" onclick="selectChoice('q_1794786053542_742', '目的', 2)"><strong>C.</strong> 目的</button><button type="button" class="option-btn" id="opt-btn-q_1794786053542_742-3" onclick="selectChoice('q_1794786053542_742', 'コンテンツ', 3)"><strong>D.</strong> コンテンツ</button></div></div><div class="q-card" id="sq-q_1794786025126_83"><div class="q-header"><strong>第 4 問</strong><span style="color:#64748b; font-size:0.8rem;">配点: 2点</span></div><div class="q-prompt">使用者の働きかけ（入力）に応じて、応答（出力）する機能を【 ( 3 ) 】といいます。</div><div class="options-grid"><button type="button" class="option-btn" id="opt-btn-q_1794786025126_83-0" onclick="selectChoice('q_1794786025126_83', '情報', 0)"><strong>A.</strong> 情報</button><button type="button" class="option-btn" id="opt-btn-q_1794786025126_83-1" onclick="selectChoice('q_1794786025126_83', 'コンテンツ', 1)"><strong>B.</strong> コンテンツ</button><button type="button" class="option-btn" id="opt-btn-q_1794786025126_83-2" onclick="selectChoice('q_1794786025126_83', '双方向性', 2)"><strong>C.</strong> 双方向性</button><button type="button" class="option-btn" id="opt-btn-q_1794786025126_83-3" onclick="selectChoice('q_1794786025126_83', '情報通信', 3)"><strong>D.</strong> 情報通信</button></div></div></div>
-
-    <div class="submit-bar" id="submit-bar">
-      <button class="btn-submit" onclick="submitAndGradeQuiz()">解答を完了して採点する</button>
-    </div>
-
-    <!-- Automated Grading Result Box -->
-    <div class="result-section" id="result-section">
-      <h2 style="text-align:center; margin:0; font-size:1.3rem;">小テスト 採点結果</h2>
-      <div class="result-badge" id="score-display">0 / 100 点</div>
-      <p style="text-align:center; color:#475569; margin-top:0;" id="score-percentage"></p>
-
-      <div style="text-align:center; margin: 1rem 0;">
-        <button class="btn-copy" onclick="copyScoreText()">
-          📋 提出用スコアテキストをコピー
-        </button>
-      </div>
-
-      <p style="font-size:0.85rem; color:#475569; text-align:center; margin-bottom:4px;">
-        ※「提出用スコアテキストをコピー」を押すと、ロイロノートやGoogle Classroom、Teamsにそのまま貼り付けられる提出用テキストがクリップボードにコピーされます。
-      </p>
-
-      <div class="copy-block" id="submission-text-box"></div>
-
-      <h3 style="font-size:1.05rem; margin-top:1.5rem; border-bottom:2px solid #e2e8f0; padding-bottom:6px;">問題別の採点・正答確認</h3>
-      <div id="feedback-list"></div>
-
-      <div style="text-align:center; margin-top:1.5rem;">
-        <button onclick="retryQuiz()" style="background:#e2e8f0; border:none; padding:8px 16px; border-radius:6px; font-weight:600; cursor:pointer;">
-          もう一度解き直す
-        </button>
-      </div>
-    </div>
-
-  </main>
+    
+    <div id="scoreBox"></div>
+    <button id="saveResultBtn" class="btn-save-result" onclick="exportResultJSON()">💾 解答結果をファイルに保存（提出用）</button>
+  </div>
 
   <script>
-    const QUIZ_DATA = {"title":"双方向性のあるコンテンツとは","subject":"中学２年　技術","timeLimit":3,"instructions":"文章を読み、空欄にあてはまる適切な語句を答えなさい。","text":"使用者の働きかけ（入力）に応じて、応答（出力）する機能を双方向性といいます。また、目的に応じて、文字や音声、静止画、動画などのメディアを組み合わせて表現された情報をコンテンツといいます。\n　社会では、情報通信ネットワークを利用して、さまざまなコンテンツを双方向にやりとりするシステムが数多く作られ、活用されています。","questions":[{"id":"q_1794785945167_369","type":"choice4","answer":"入力","prompt":"使用者の働きかけ（【 ( 1 ) 】）に応じて、応答（出力）する機能を双方向性といいます。","distractors":["出力","利用","目的"],"points":2,"alternatives":[],"normalizeRules":{"nfkc":true,"ignoreCase":true,"trim":true},"explanation":""},{"id":"q_1794785987334_772","type":"choice4","answer":"出力","prompt":"使用者の働きかけ（入力）に応じて、応答（【 ( 2 ) 】）する機能を双方向性といいます。","distractors":["応答","入力","配信"],"points":2,"alternatives":[],"normalizeRules":{"nfkc":true,"ignoreCase":true,"trim":true},"explanation":""},{"id":"q_1794786053542_742","type":"choice4","answer":"コンテンツ","prompt":"また、目的に応じて、文字や音声、静止画、動画などのメディアを組み合わせて表現された情報を【 ( 4 ) 】といいます。","distractors":["情報","目的","双方向性"],"points":2,"alternatives":[],"normalizeRules":{"nfkc":true,"ignoreCase":true,"trim":true},"explanation":""},{"id":"q_1794786025126_83","type":"choice4","answer":"双方向性","prompt":"使用者の働きかけ（入力）に応じて、応答（出力）する機能を【 ( 3 ) 】といいます。","distractors":["情報","コンテンツ","情報通信"],"points":2,"alternatives":[],"normalizeRules":{"nfkc":true,"ignoreCase":true,"trim":true},"explanation":""}]};
-    const studentAnswers = {};
+    let lastResultData = null;
 
-    function initStudentPage() {
-      document.getElementById('display-title').textContent = QUIZ_DATA.title || '確認小テスト';
-      document.getElementById('display-subject').textContent = QUIZ_DATA.subject || '確認テスト';
-      document.getElementById('display-q-count').textContent = '全 ' + QUIZ_DATA.questions.length + ' 問';
-      const total = QUIZ_DATA.questions.reduce(function(acc, q) { return acc + (q.points || 0); }, 0);
-      document.getElementById('display-total-points').textContent = '合計 ' + total + ' 点';
-
-      // Render passage with blank pills
-      let text = QUIZ_DATA.text || '';
-      QUIZ_DATA.questions.forEach(function(q, idx) {
-        if (q.answer) {
-          text = text.replace(q.answer, '<span class="blank-pill">（ ' + (idx + 1) + ' ）</span>');
+    window.addEventListener('DOMContentLoaded', () => {
+      // 選択肢の自動ランダムシャッフル
+      const selects = document.querySelectorAll('.student-select');
+      selects.forEach(select => {
+        const options = Array.from(select.querySelectorAll('option')).slice(1);
+        for (let i = options.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [options[i], options[j]] = [options[j], options[i]];
         }
-      });
-      document.getElementById('student-passage').innerHTML = text.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
-
-      // Render Questions
-      const qWrap = document.getElementById('student-questions-container');
-      let html = '';
-
-      QUIZ_DATA.questions.forEach(function(q, idx) {
-        const qNum = idx + 1;
-        const isChoice = q.type === 'choice4';
-
-        html += '<div class="q-card" id="sq-' + q.id + '">' +
-          '<div class="q-header">' +
-            '<strong>第 ' + qNum + ' 問</strong>' +
-            '<span style="color:#64748b; font-size:0.8rem;">配点: ' + (q.points || 10) + '点</span>' +
-          '</div>' +
-          '<div class="q-prompt">' + escapeHtml(q.prompt || '空欄にあてはまる語句を答えなさい。') + '</div>';
-
-        if (isChoice) {
-          // Shuffle options for student view
-          const opts = [q.answer, ...q.distractors];
-          shuffleArray(opts);
-          const labels = ['A', 'B', 'C', 'D'];
-
-          html += '<div class="options-grid">';
-          opts.forEach(function(opt, optIdx) {
-            html += '<button type="button" class="option-btn" id="opt-btn-' + q.id + '-' + optIdx + '" onclick="selectChoice(\'' + q.id + '\', \'' + escapeJs(opt) + '\', ' + optIdx + ')">' +
-              '<strong>' + labels[optIdx] + '.</strong> ' + escapeHtml(opt) +
-            '</button>';
-          });
-          html += '</div>';
-        } else {
-          html += '<div class="text-input-wrap">' +
-            '<input type="text" id="input-' + q.id + '" placeholder="ここに入力..." oninput="handleTextInput(\'' + q.id + '\', this.value)">' +
-          '</div>';
-        }
-
-        html += '</div>';
+        options.forEach(opt => select.appendChild(opt));
       });
 
-      qWrap.innerHTML = html;
-    }
+      // LocalStorageからの過去の得点履歴の読み込み
+      const savedHistory = localStorage.getItem('history_今日の確認テスト');
+      if (savedHistory) {
+        const hist = JSON.parse(savedHistory);
+        document.getElementById('historyNotice').innerText = '前回の記録: ' + hist.date + ' [' + hist.score + ']';
+      }
+    });
 
-    function selectChoice(qId, val, optIdx) {
-      studentAnswers[qId] = val;
-      // Update UI selection
-      const btns = document.querySelectorAll('[id^="opt-btn-' + qId + '-"]');
-      btns.forEach(function(btn) { btn.classList.remove('selected'); });
-      const target = document.getElementById('opt-btn-' + qId + '-' + optIdx);
-      if (target) target.classList.add('selected');
-    }
-
-    function handleTextInput(qId, val) {
-      studentAnswers[qId] = val;
-    }
-
-    function normalizeStudentAnswer(str) {
-      if (!str) return '';
-      return str
-        .normalize('NFKC')
-        .trim()
-        .toLowerCase()
-        .replace(/\s+/g, ' ');
-    }
-
-    function submitAndGradeQuiz() {
-      const studentName = (document.getElementById('student-name').value || '').trim();
-      const studentId = (document.getElementById('student-id').value || '').trim();
-
-      if (!studentName) {
-        if (!confirm('氏名が入力されていません。このまま採点しますか？')) {
-          document.getElementById('student-name').focus();
-          return;
-        }
+    function checkAnswers() {
+      const name = document.getElementById('studentName').value.trim();
+      if (!name) {
+        alert('採点する前に氏名を入力してください。');
+        return;
       }
 
-      let totalScore = 0;
-      let maxScore = 0;
+      const inputs = document.querySelectorAll('.student-input, .student-select');
       let correctCount = 0;
-      const feedbackItems = [];
-      const textLines = [];
+      const details = [];
 
-      textLines.push('==============================');
-      textLines.push('【小テスト 解答提出データ】');
-      textLines.push('テスト名: ' + (QUIZ_DATA.title || '小テスト'));
-      textLines.push('受験者氏名: ' + (studentName || '未記入'));
-      textLines.push('学籍/番号: ' + (studentId || '未記入'));
-      textLines.push('提出日時: ' + new Date().toLocaleString('ja-JP'));
-      textLines.push('------------------------------');
+      inputs.forEach((input, idx) => {
+        const userAns = input.value.trim();
+        const targetAns = input.dataset.answer.trim();
+        const isCorrect = (userAns === targetAns);
 
-      QUIZ_DATA.questions.forEach(function(q, idx) {
-        const qNum = idx + 1;
-        const qPoints = q.points || 10;
-        maxScore += qPoints;
-
-        const rawStudentAns = studentAnswers[q.id] || '';
-        let isCorrect = false;
-
-        if (q.type === 'choice4') {
-          isCorrect = (rawStudentAns === q.answer);
-        } else {
-          // Normalize matching
-          const normStudent = normalizeStudentAnswer(rawStudentAns);
-          const normCorrect = normalizeStudentAnswer(q.answer);
-          if (normStudent === normCorrect) {
-            isCorrect = true;
-          } else if (q.alternatives && q.alternatives.length > 0) {
-            isCorrect = q.alternatives.some(function(alt) {
-              return normalizeStudentAnswer(alt) === normStudent;
-            });
-          }
-        }
+        const existingKey = input.parentNode.querySelector('.answer-key');
+        if (existingKey) existingKey.remove();
 
         if (isCorrect) {
-          totalScore += qPoints;
+          input.className = input.classList.contains('student-input') ? 'student-input correct' : 'student-select correct';
           correctCount++;
+        } else {
+          input.className = input.classList.contains('student-input') ? 'student-input incorrect' : 'student-select incorrect';
+          const keySpan = document.createElement('span');
+          keySpan.className = 'answer-key';
+          keySpan.innerText = ' [正解: ' + targetAns + ']';
+          input.parentNode.appendChild(keySpan);
         }
 
-        feedbackItems.push({
-          num: qNum,
-          type: q.type,
-          isCorrect: isCorrect,
-          studentAns: rawStudentAns,
-          correctAns: q.answer,
-          points: qPoints
-        });
-
-        const mark = isCorrect ? '⭕ 正解' : '❌ 不正解';
-        textLines.push('第' + qNum + '問 (' + (q.type === 'choice4' ? '4択' : '記述') + '): ' + mark + ' | 解答: ' + (rawStudentAns || '未解答') + (isCorrect ? '' : ' (正解: ' + q.answer + ')') + ' [' + (isCorrect ? qPoints : 0) + '/' + qPoints + '点]');
+        details.push({ qNo: idx + 1, userAns: userAns, targetAns: targetAns, isCorrect: isCorrect });
       });
 
-      const pct = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
-      textLines.push('------------------------------');
-      textLines.push('得点: ' + totalScore + ' / ' + maxScore + ' 点 (正答率: ' + pct + '%)');
-      textLines.push('正答数: ' + correctCount + ' / ' + QUIZ_DATA.questions.length + ' 問');
-      textLines.push('==============================');
+      const scoreStr = inputs.length + '問中 ' + correctCount + '問正解 (' + Math.round((correctCount / inputs.length) * 100) + '点)';
+      const scoreBox = document.getElementById('scoreBox');
+      scoreBox.style.display = 'block';
+      scoreBox.className = 'score-good';
+      scoreBox.innerText = '採点結果: ' + scoreStr;
 
-      // Update Result UI
-      document.getElementById('score-display').textContent = totalScore + ' / ' + maxScore + ' 点';
-      document.getElementById('score-percentage').textContent = '正答率: ' + pct + '% (' + correctCount + ' / ' + QUIZ_DATA.questions.length + ' 問正解)';
-      document.getElementById('submission-text-box').textContent = textLines.join('\n');
+      // 解答履歴データ作成
+      lastResultData = {
+        title: "今日の確認テスト",
+        studentName: name,
+        date: new Date().toLocaleString('ja-JP'),
+        score: scoreStr,
+        totalQuestions: inputs.length,
+        correctCount: correctCount,
+        details: details
+      };
 
-      let feedHtml = '';
-      feedbackItems.forEach(function(f) {
-        feedHtml += '<div class="feedback-item">' +
-          '<div>' +
-            '<strong>第' + f.num + '問:</strong> ' +
-            (f.isCorrect ? '<span class="badge-correct">正解 ⭕</span>' : '<span class="badge-wrong">不正解 ❌</span>') +
-            '<div style="font-size:0.8rem; color:#475569; margin-top:2px;">あなたの解答: ' + escapeHtml(f.studentAns || '未記入') +
-            (!f.isCorrect ? ' &nbsp;|&nbsp; <strong>正解: ' + escapeHtml(f.correctAns) + '</strong>' : '') + '</div>' +
-          '</div>' +
-          '<div style="font-weight:700;">' + (f.isCorrect ? f.points : 0) + ' / ' + f.points + ' 点</div>' +
-        '</div>';
-      });
-      document.getElementById('feedback-list').innerHTML = feedHtml;
-
-      document.getElementById('result-section').style.display = 'block';
-      document.getElementById('submit-bar').style.display = 'none';
-      document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+      // LocalStorage保存
+      localStorage.setItem('history_今日の確認テスト', JSON.stringify({ score: scoreStr, date: lastResultData.date }));
+      document.getElementById('saveResultBtn').style.display = 'block';
     }
 
-    function copyScoreText() {
-      const text = document.getElementById('submission-text-box').textContent;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function() {
-          alert('提出用テキストをクリップボードにコピーしました！\nロイロノートやClassroomに貼り付けて提出してください。');
-        }).catch(function() {
-          fallbackCopy(text);
-        });
-      } else {
-        fallbackCopy(text);
-      }
+    // 解答結果のJSONエクスポート保存 (Blob)
+    function exportResultJSON() {
+      if (!lastResultData) return;
+      const jsonStr = JSON.stringify(lastResultData, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = '[解答結果]' + lastResultData.title + '_' + lastResultData.studentName + '.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
-
-    function fallbackCopy(text) {
-      const area = document.createElement('textarea');
-      area.value = text;
-      document.body.appendChild(area);
-      area.select();
-      document.execCommand('copy');
-      document.body.removeChild(area);
-      alert('提出用テキストをコピーしました！');
-    }
-
-    function retryQuiz() {
-      document.getElementById('result-section').style.display = 'none';
-      document.getElementById('submit-bar').style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function shuffleArray(arr) {
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-      }
-      return arr;
-    }
-
-    function escapeHtml(str) {
-      if (!str) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-    }
-
-    function escapeJs(str) {
-      if (!str) return '';
-      return String(str).replace(/'/g, "\\'");
-    }
-
-    window.addEventListener('DOMContentLoaded', initStudentPage);
   </script>
-
-</body></html>
+</body>
+</html>
